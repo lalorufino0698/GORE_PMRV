@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2888C11A-74B3-4B7C-ACF3-EDD2A87F0605}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Negocio</RootNamespace>
+    <AssemblyName>Negocio</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helper\Helper.cs" />
+    <Compile Include="N_Afiliacion.cs" />
+    <Compile Include="N_Configuracion.cs" />
+    <Compile Include="N_Cuenta.cs" />
+    <Compile Include="N_Cuota.cs" />
+    <Compile Include="N_Detalle_Solicitud.cs" />
+    <Compile Include="N_Empresa.cs" />
+    <Compile Include="N_Estado_Prestamo.cs" />
+    <Compile Include="N_Estado_Solicitud.cs" />
+    <Compile Include="N_FichaInformativa.cs" />
+    <Compile Include="N_InstitucionEducativa.cs" />
+    <Compile Include="N_Movimiento.cs" />
+    <Compile Include="N_Pagos.cs" />
+    <Compile Include="N_Patrocinador.cs" />
+    <Compile Include="N_Penalidad.cs" />
+    <Compile Include="N_Prestamo.cs" />
+    <Compile Include="N_Region.cs" />
+    <Compile Include="N_Roles.cs" />
+    <Compile Include="N_Socio.cs" />
+    <Compile Include="N_Solicitud.cs" />
+    <Compile Include="N_Tipo_Prestamo.cs" />
+    <Compile Include="N_Usuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{17472b6c-b328-45f8-bbef-3fcc73b31f16}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GestionDatos\GestionDatos.csproj">
+      <Project>{bb00ce3e-9241-4397-b951-8da96c9d7ae7}</Project>
+      <Name>GestionDatos</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

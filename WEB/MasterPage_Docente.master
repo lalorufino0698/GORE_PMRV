@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage_Docente.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio Socio</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" type="image/png" href="#">
+    <link rel="stylesheet" href="dist/style.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <form id="form1" runat="server">
+        <div class="grid">
+            <header class="header">
+                <i class="fas fa-bars header__menu"></i>
+                <div class="header__search">
+                    <input class="header__input" placeholder="Buscar..." />
+                </div>
+                <div class="header__avatar">
+                    <asp:Image runat="server" ID="Image1"  CssClass="img-circle" Height="35" Width="40" />
+                    <div class="dropdown">
+                        <ul class="dropdown__list">
+                            <li class="dropdown__list-item">
+                                <span class="dropdown__icon"><i class="far fa-user"></i></span>
+                                <a href="WF_Actualizar_Datos_Cliente.aspx" style="color:  #0a5086"><i class="dropdown__title"></i>Mi Perfil</a>
+                            </li>
+                        
+                            <li class="dropdown__list-item">
+                                <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
+                                <a href="WF_Iniciar_Sesion.aspx" style="color:  #0a5086"><i class="dropdown__title"></i>Cerrar Sesion</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <asp:Label ID="txtcodsocio" runat="server" Text="" Visible="false"></asp:Label>
+            <asp:Label ID="pkcuenta" runat="server" Text="" Visible="false"></asp:Label>
+
+
+            <aside class="sidenav">
+                <div class="sidenav__brand">
+                    <img src="img/gore_img/CAFED_2.png" alt="..." class="img-circle" height="40" width="40">
+                    <a class="sidenav__brand-link" style="color:#e8858c;font-size:30px" href="#"><strong>C.A.F.E.D</strong></a>
+                    <i class="fas fa-times sidenav__brand-close"></i>
+                </div>
+                <div class="sidenav__profile">
+                    <div class="profile_pic" style="margin-left: 45px">
+                        <br />
+                        <asp:Image runat="server" ID="profile" CssClass="img-circle" Height="109" Width="114" />
+                    </div>
+                </div>
+                <div class="sidenav__profile">
+                    <div class="profile_info" style="margin-left: 20px; margin-top: -20px">
+                       
+                        <span style="margin-left: 40px">Bienvenido,</span>
+                        <br />
+                        <asp:Label ID="txtnombre" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="txtapellidopaterno" runat="server" Text=""></asp:Label>
+                    </div>
+                </div>
+
+                <div class="row row--align-v-center row--align-h-center">
+                    <ul class="navList">
+                        <li class="navList__heading">DATOS PERSONALES<i class="far fa-file-alt"></i></li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-book"></i></span>
+                                <span class="navList__subheading-title">Datos Personales</span>
+                            </div>
+                            <ul class="subList subList--hidden">
+                                <li class="subList__item"><a href="WF_MiCuenta.aspx" style="color: white">Mi Cuenta</a></li>
+                                <li class="subList__item"><a href="WF_Actualizar_Datos_Cliente.aspx" style="color: white">Actualizar mis datos</a></li>
+                                <li class="subList__item"><a href="CambiarContraseña.aspx" style="color: white">Cambiar Contraseña</a></li>
+                            </ul>
+                        </li>
+                        <li class="navList__heading">Operaciones<i class="fas fa-chart-bar"></i></li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-users"></i></span>
+                                <span class="navList__subheading-title">Afiliaciones</span>
+                            </div>
+                            <ul class="subList subList--hidden">
+                                <li class="subList__item"><a href="WF_Listar_Afiliaciones.aspx" style="color: white">Verificar Afiliaciones</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                <span class="navList__subheading-title">Prestamos</span>
+                            </div>
+                            <ul class="subList subList--hidden">
+                                <li class="subList__item"><a href="WF_Simular_Prestamos.aspx" style="color: white">Simular Prestamo</a></li>
+                                <li class="subList__item"><a href="WF_Solicitar_Prestamo.aspx" style="color: white">Solicitar Prestamo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-list"></i></span>
+                                <span class="navList__subheading-title">Mis Prestamos</span>
+                            </div>
+                            <ul class="subList subList--hidden">
+                                <li class="subList__item"><a href="WF_Listar_Prestamo_Pendiente_Socio.aspx" style="color: white">Pendientes</a></li>
+                                <li class="subList__item"><a href="WF_Listar_Prestamo_Aceptado_Socio.aspx" style="color: white">Aceptados</a></li>
+                                <li class="subList__item"><a href="WF_Historial_Prestamo.aspx" style="color: white">Historial Prestamos</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-list"></i></span>
+                                <span class="navList__subheading-title">Pagos</span>
+                            </div>
+                            <ul class="subList subList--hidden">
+                                <li class="subList__item"><a href="WF_Historial_Pagos.aspx" style="color: white">Historial de Pagos</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- Bootstrap -->
+            <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- FastClick -->
+            <script src="../vendors/fastclick/lib/fastclick.js"></script>
+            <!-- partial -->
+            <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+            <script src='https://www.amcharts.com/lib/3/amcharts.js'></script>
+            <script src='https://www.amcharts.com/lib/3/serial.js'></script>
+            <script src='https://www.amcharts.com/lib/3/themes/light.js'></script>
+            <script src="dist/script.js"></script>
+            <!-- Alertas -->
+        </div>
+    </form>
+</body>
+</html>

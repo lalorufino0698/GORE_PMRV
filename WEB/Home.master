@@ -1,0 +1,714 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="Home" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CAFED - Plataforma de materiales y recursos virtuales</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/gore_img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
+          rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="SPA/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="SPA/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="SPA/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+    <!-- Template Stylesheet -->
+    <link href="SPA/css/style.css" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  
+    <script src="SPA/Scripts/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular-cookies.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+    <script src="SPA/Scripts/angular-timer-bower.js"></script>
+    <script src="SPA/Scripts/angular-timer-all.min.js"></script>
+
+    <script src="SPA/Scripts/ui-bootstrap-tpls-1.1.2.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+    <script src="SPA/Scripts/jquery.barrating.js"></script>
+
+    <script src="SPA/Scripts/loadingoverlay.min.js"></script>
+    <script src="SPA/Scripts/Chart.min.js"></script>
+    <script src="SPA/Scripts/angular-chart.min.js"></script>
+    <link href="SPA/css/angular-chart.min.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+
+        function SoloNumeros(e) {
+            var key_press = document.all ? key_press = e.keyCode : key_press = e.which;
+            return ((key_press > 47 && key_press < 58) || key_press == 46);
+        }
+
+        function SoloLetrasYEsp() {
+
+            if ((event.keyCode >= 65) && (event.keyCode <= 90) || (event.keyCode >= 97) && (event.keyCode <= 122) || event.keyCode == 32 || event.keyCode >= 192 && event.keyCode <= 255) {
+                event.returnValue = true;
+            }
+            else {
+                event.returnValue = false;
+            }
+        }
+
+    </script>
+
+    <!-- Agregar SweetAlert CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.9/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.9/dist/sweetalert2.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head> 
+
+<body>
+
+    <div class="container-xxl bg-white p-0" >
+        <!-- Spinner Start -->
+        <div id="spinner"
+             class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Cargando...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <h4 class="cafed">
+                    <img src="img/gore_img/LOGO.png" alt="" width="300px"><span style="color:#044c84">CAFED</span> - SOMOS <span style="color:#ec7c7c">INCLUSIVA</span>
+                </h4>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="#" class="nav-item nav-link active">Inicio</a>
+                    <a href="#" class="nav-item nav-link">Nosotros</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Áreas</a>
+                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
+                            <a href="Introduccion.html" class="dropdown-item">
+                                <img class="rounded-circle"
+                                     src="img/gore_img/introduccion-remove.png" style="width: 40px; height: 30px;" alt="Image">
+                                Introducción
+                            </a>
+                            <a href="team.html" class="dropdown-item">
+                                <img class="rounded-circle"
+                                     src="img/gore_img/recursos-remove.png" style="width: 40px; height: 30px;" alt="Image">
+                                Recursos y materiales didácticos
+                            </a>
+                            <a href="call-to-action.html" class="dropdown-item">
+                                <img class="rounded-circle"
+                                     src="img/gore_img/practicas-remove.png" style="width: 40px; height: 30px;" alt="Image">
+                                Prácticas inclusivas
+                            </a>
+                            <a href="appointment.html" class="dropdown-item">
+                                <img class="rounded-circle"
+                                     src="img/gore_img/introduccion-remove.png" style="width: 40px; height: 30px;" alt="Image">
+                                Evaluación auténtica
+                            </a>
+                            <a href="testimonial.html" class="dropdown-item">
+                                <img class="rounded-circle"
+                                     src="img/gore_img/evaluacion-remove.png" style="width: 40px; height: 30px;" alt="Image"> Foro
+                                o comunidad
+                            </a>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-item nav-link">Contacto</a>
+                </div>
+                <a href="WF_Registrar_Plataforma.aspx" class="nav-item nav-link">Regístrate</a>
+                <a href="WF_Iniciar_Sesion.aspx" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">
+                    Ingresar<i class="fa fa-arrow-right ms-3"></i>
+                </a>
+            </div>
+        </nav>
+        <!-- Navbar End -->
+        <!-- Carousel Start -->
+        <div class="container-fluid p-0 mb-5">
+            <div class="owl-carousel header-carousel position-relative">
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="img/gore_img/inclu.jpg" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                         style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">
+                                        Promoviendo una Educación
+                                        Inclusiva en el Callao
+                                    </h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">
+                                        La educación inclusiva en el Callao
+                                        busca garantizar que todos los niños, sin importar sus diferencias o
+                                        capacidades, tengan acceso a un entorno educativo que respete la diversidad y
+                                        promueva el aprendizaje colaborativo.
+                                    </p>
+                                    <a href="#"
+                                       class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">
+                                        Ver
+                                        Más
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="owl-carousel-item position-relative">
+                    <img class="img-fluid" src="img/gore_img/inclu2.jpg" alt="">
+                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                         style="background: rgba(0, 0, 0, .2);">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-10 col-lg-8">
+                                    <h1 class="display-2 text-white animated slideInDown mb-4">
+                                        Creando Oportunidades
+                                        para un Futuro Mejor
+                                    </h1>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">
+                                        La educación inclusiva en el Callao
+                                        no solo busca integrar, sino también empoderar a cada niña y niño para alcanzar
+                                        su máximo potencial. A través de actividades participativas y entornos
+                                        educativos.
+                                    </p>
+                                    <a href="#"
+                                       class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">
+                                        Ver
+                                        Más
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <h1 class="titleCafed">BIENVENIDOS A LA EDUCACIÓN INCLUSIVA</h1>
+                        <p>
+                            El Gobierno Regional, junto con CAFED y el programa Somos Inclusiva, se ha comprometido a
+                            construir una educación más equitativa e inclusiva, garantizando que todos los estudiantes,
+                            especialmente aquellos con necesidades educativas diversas, tengan acceso a una formación de
+                            calidad.
+                        </p>
+                        <p class="mb-4">
+                            Esta alianza estratégica se enfoca en eliminar barreras de aprendizaje y
+                            participación a través de la adaptación de espacios, recursos pedagógicos accesibles y la
+                            capacitación continua de docentes en prácticas inclusivas. Además, fomenta la participación
+                            activa de las familias y la comunidad, promoviendo una educación que valore la diversidad y
+                            respete las diferencias individuales.
+                        </p>
+                        <div class="row g-4 align-items-center">
+                            <div class="col-sm-6">
+                                <a class="btn btn-primary rounded-pill py-3 px-5" href="">Leer Más</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 about-img wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <img class="img-fluid w-35 rounded-circle bg-light p-3" src="img/gore_img/GORE.png" alt="">
+                            </div>
+                            <div class="col-6 text-start" style="margin-top: -150px;">
+                                <img class="img-fluid w-50 rounded-circle bg-light p-3" src="img/gore_img/CAFED_2.png" alt="">
+                            </div>
+                            <div class="col-6 text-end" style="margin-top: -150px;">
+                                <img class="img-fluid w-50 rounded-circle bg-light p-3" src="img/gore_img/INCLUSIVA2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call To Action Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute w-100 h-100 rounded" src="img/gore_img/inclusivaaula.jpg"
+                                     style="object-fit: cover;">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="titleCafed">
+                                    PROYECTO DE EDUCACIÓN INCLUSIVA PARA ALUMNOS CON DISCAPACIDAD DE
+                                    LAS II.EE. PÚBLICAS DE EBR REGIÓN CALLAO
+                                </h1>
+                                <p class="mb-4">
+                                    Todos somos diferentes, aprendemos a diferentes ritmos y velocidades.
+                                    Las Instituciones Educativas tienen que estar preparadas para promover logros de
+                                    aprendizaje a todos los estudiantes.
+                                    Los alumnos con discapacidad no deben adaptarse al sistema, es el sistema que debe
+                                    adaptarse a sus necesidades.
+                                    Los maestros requieren estar preparados para atender a todos los estudiantes sin
+                                    excepción.
+                                </p>
+                                <a class="btn btn-primary py-3 px-5" href="">
+                                    Regístrate aquí<i class="fa fa-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call To Action End -->
+        <!-- Testimonial Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="titleCafed">Tenemos para ti</h1>
+                    <p>Cinco áreas clave que buscan fomentar una educación accesible, equitativa y colaborativa, garantizando que todos los estudiantes, independientemente de sus capacidades, participen activamente en el proceso educativo.</p>
+                </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">
+                            Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
+                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos
+                        </p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/gore_img/introduccion-remove.png"
+                                 style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Introducción</h3>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">
+                            Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
+                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos
+                        </p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/gore_img/recursos-remove.png"
+                                 style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Recursos y materiales didácticos</h3>
+
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">
+                            Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
+                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos
+                        </p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/gore_img/practicas-remove.png"
+                                 style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Prácticas inclusivas</h3>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">
+                            Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
+                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos
+                        </p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/gore_img/evaluacion-remove.png"
+                                 style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Evaluación auténtica</h3>
+
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-item bg-light rounded p-5">
+                        <p class="fs-5">
+                            Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet
+                            dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos
+                        </p>
+                        <div class="d-flex align-items-center bg-white me-n5" style="border-radius: 50px 0 0 50px;">
+                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/gore_img/foro-remove.png"
+                                 style="width: 90px; height: 90px;">
+                            <div class="ps-3">
+                                <h3 class="mb-1">Foro o comunidad</h3>
+                            </div>
+                            <i class="fa fa-quote-right fa-3x text-primary ms-auto d-none d-sm-flex"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        <!-- Testimonial End -->
+        <!-- Classes Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h1 class="titleCafed">Últimas Actividades</h1>
+                    <p>Los estudiantes chalacos identificaron acciones que provocan la exclusión de compañeros en su entorno escolar y reflexionaron sobre su impacto. A través de actividades dinámicas, trabajaron en estrategias para hacer su colegio más inclusivo, promoviendo la empatía y el respeto.🤟</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="img/gore_img/Actividad1.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Arte y Dialogo</a>
+
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="img/gore_img/Actividad2.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Pintura y Dibujo</a>
+
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="img/gore_img/Actividad3.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Dibujo en conjunto</a>
+
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="img/gore_img/Actividad4.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Expresiones en conjunto</a>
+
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="img/gore_img/Actividad5.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Charla a docentes</a>
+
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="classes-item">
+                            <div class="bg-light rounded-circle w-75 mx-auto p-3">
+                                <img class="img-fluid rounded-circle" src="img/gore_img/Actividad6.jpg" alt="">
+                            </div>
+                            <div class="bg-light rounded p-4 pt-5 mt-n5">
+                                <a class="d-block text-center h3 mt-3 mb-4" href="">Dinamica de dibujo</a>
+
+                                <div class="row g-1">
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-primary pt-2">
+                                            <h6 class="text-primary mb-1">Age:</h6>
+                                            <small>3-5 Years</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-success pt-2">
+                                            <h6 class="text-success mb-1">Time:</h6>
+                                            <small>9-10 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="border-top border-3 border-warning pt-2">
+                                            <h6 class="text-warning mb-1">Capacity:</h6>
+                                            <small>30 Kids</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Classes End -->
+        <!-- Appointment Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded">
+                    <div class="row g-0">
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                            <div class="h-100 d-flex flex-column justify-content-center p-5">
+                                <h1 class="titleCafed">Envíanos tus dudas o apreciaciones</h1>
+                                <form>
+                                    <div class="row g-3">
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="gname"
+                                                       placeholder="Gurdian Name" required="required" onkeypress="return SoloLetrasYEsp()">
+                                                <label for="gname">Nombres completos</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="email" class="form-control border-0" id="gmail"
+                                                       placeholder="Gurdian Email" required="required">
+                                                <label for="gmail">Correo Eléctronico</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-floating">
+                                                <input type="text" class="form-control border-0" id="cname"
+                                                       placeholder="Child Name" required="required" maxlength="8" onkeypress="return SoloNumeros(event)">
+                                                <label for="cname">Dni</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control border-0"
+                                                          placeholder="Leave a message here" id="message"
+                                                          style="height: 100px" required="required"></textarea>
+                                                <label for="message">Consultas</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit" ng-click="GuardarConsultas()">Enviar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute w-100 h-100 rounded" src="img/gore_img/Consulta.jpg"
+                                     style="object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Appointment End -->
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">CAFED - SOMOS INCLUSIVA</h3>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Av. Elmer Faucett 3970, Callao 07031</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>999 999 999</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>callaocafedcallao@gmail.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href="https://www.tiktok.com/cafedcallao?is_from_webapp=1&sender_device=pc"><i class="fab fa-tiktok"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/CAFEDCallao.pe"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCV1Q8aruyMsfWpADIs6XBXw"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/cafedcallao.pe/"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Enlaces Rápidos</h3>
+                        <a class="btn btn-link text-white-50" href="">Inicio</a>
+                        <a class="btn btn-link text-white-50" href="">Nosotros</a>
+                        <a class="btn btn-link text-white-50" href="">Áreas</a>
+                        <a class="btn btn-link text-white-50" href="">Contacto</a>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h3 class="text-white mb-4">Ubícanos</h3>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.5756340638623!2d-77.1136325!3d-12.0098698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105cc2f72aec21f%3A0xf1d56a712dfbf0d2!2sComit%C3%A9%20de%20Administraci%C3%B3n%20del%20Fondo%20Educativo%20del%20Callao!5e0!3m2!1ses!2spe!4v1690592767834!5m2!1ses!2spe"
+                                width="550"
+                                height="450"
+                                style="border:8;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">CAFED CALLAO</a>, Todos los derechos reservados.
+
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Diseñado por <a class="border-bottom" href="">E.R.O.M</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="SPA/lib/wow/wow.min.js"></script>
+    <script src="SPA/lib/easing/easing.min.js"></script>
+    <script src="SPA/lib/waypoints/waypoints.min.js"></script>
+    <script src="SPA/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="SPA/js/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
