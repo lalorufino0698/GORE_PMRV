@@ -58,7 +58,7 @@
 
         .nivelesColores {
             height: 10px;
-            width: 188px;
+            width: 350px;
             display: inline-block;
             position: relative;
             left: 25px;
@@ -229,7 +229,7 @@
                 </fieldset>
             </div>
 
-            <div class="nivelSeguridad" style="background-color: white; width: 30rem">
+            <div class="nivelSeguridad" style="background-color: white; width: 40rem">
                 <p>Nivel de seguridad de contraseña</p>
                 <span id="nivelseguridad">bajo</span>
                 <div class="nivelesColores">
@@ -237,7 +237,7 @@
                 </div>
                 <div class="NivelesColores">
                 </div>
-            </div>
+            </di>
             <h2 class="clavecorrecta oculto"></h2>
         </asp:Panel>
 

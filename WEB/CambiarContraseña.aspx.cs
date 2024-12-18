@@ -41,16 +41,17 @@ public partial class CambiarContraseña : System.Web.UI.Page
             //código
             Usuario.VU_codigoUsuario = txtCodUsuario.Text;
             _usuario.BuscarUsuarioPorCodigoUsuario(Usuario);
-            var codigoBus = Usuario.VU_codigoUsuario;
-            if (codigoBus!="")
+            var estado = Usuario.estado;
+            if (estado!=1)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertCorreoIncorrectoNoCoinciden()", true);
-                return;
+                Session["codUsuario"] = txtCodUsuario.Text;
+                Response.Redirect("ActualizarContraseña.aspx");
+               
             }
             else
             {
-                Session["email"] = txtCodUsuario.Text;
-                Response.Redirect("ActualizarContraseña.aspx");
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertUsuarioNoExiste()", true);
+                return;
             }
         }
         else

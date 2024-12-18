@@ -70,7 +70,7 @@ public partial class PageDirector : System.Web.UI.Page
             return;
         }
 
-
+        RegistrarFichaPorMaterial();
 
 
     }
@@ -140,9 +140,12 @@ public partial class PageDirector : System.Web.UI.Page
             //una vez guardado el archivo, guardamos a la tabla material
             material.VM_Nombre = nombreArchivo;
             material.VM_Observacion = "Se registra el material :" + nombreArchivo;
+            material.VM_Ruta = "/" + fileName;
             material.VM_TipoArchivo = extension;
             material.fk_ficha = registro;
             negocioFicha.RegistrarMaterial(material);
+            ClientScript.RegisterStartupScript(this.Page.GetType(), "alerta", "registroExitoso()", true);
+ 
 
         }
 
@@ -165,7 +168,7 @@ public partial class PageDirector : System.Web.UI.Page
     {
         //primero valido los campos
         validarEntradas();
-        RegistrarFichaPorMaterial();
+        limpiar();
     }
 
     protected void Limpiar_Click(object sender, EventArgs e)

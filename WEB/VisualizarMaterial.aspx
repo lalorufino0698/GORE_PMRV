@@ -111,6 +111,13 @@
 
                                         </ItemTemplate>
                                     </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Ruta">
+                                    <ItemTemplate>
+                                        <a><%# Eval("VM_Ruta") %></a><br />
+
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Tipo de archivo">
                                         <ItemTemplate>
                                             <a><%# Eval("VM_TipoArchivo") %></a><br />

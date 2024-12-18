@@ -22,15 +22,14 @@ namespace GestionDatos
             sqlc = new SqlConnection(GD_ConexionBD.CadenaConexion);
         }
 
-        public int NuevaContraseña(string email, string encriptado, int dni)
+        public int NuevaContraseña(string codUsuario, string encriptado)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("NuevaContrasena", sqlc);
+                SqlCommand cmd = new SqlCommand("sp_actualizarContraseña", sqlc);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@correo", email);
-                cmd.Parameters.AddWithValue("@contrasena", encriptado);
-                cmd.Parameters.AddWithValue("@DNI", dni);
+                cmd.Parameters.AddWithValue("@VU_Contraseña", encriptado);
+                cmd.Parameters.AddWithValue("@VU_Cod", codUsuario);
                 sqlc.Open();
                 int filaasAfectadas =cmd.ExecuteNonQuery();
                 sqlc.Close();

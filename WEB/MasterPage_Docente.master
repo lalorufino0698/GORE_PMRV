@@ -81,46 +81,18 @@
                                 <li class="subList__item"><a href="CambiarContraseña.aspx" style="color: white">Cambiar Contraseña</a></li>
                             </ul>
                         </li>
-                        <li class="navList__heading">Operaciones<i class="fas fa-chart-bar"></i></li>
+                        <li class="navList__heading">Mis opciones<i class="fas fa-chart-bar"></i></li>
                         <li>
                             <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-users"></i></span>
-                                <span class="navList__subheading-title">Afiliaciones</span>
+                                <span class="navList__subheading-icon"><i class="fas fa-eye"></i></span>
+                                <span class="navList__subheading-title">Visualizar Recursos</span>
                             </div>
                             <ul class="subList subList--hidden">
-                                <li class="subList__item"><a href="WF_Listar_Afiliaciones.aspx" style="color: white">Verificar Afiliaciones</a></li>
+                                <li class="subList__item"><a href="VisualizarRecursos.aspx" style="color: white">Materiales Educativos</a></li>
                             </ul>
                         </li>
-                        <li>
-                            <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
-                                <span class="navList__subheading-title">Prestamos</span>
-                            </div>
-                            <ul class="subList subList--hidden">
-                                <li class="subList__item"><a href="WF_Simular_Prestamos.aspx" style="color: white">Simular Prestamo</a></li>
-                                <li class="subList__item"><a href="WF_Solicitar_Prestamo.aspx" style="color: white">Solicitar Prestamo</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-list"></i></span>
-                                <span class="navList__subheading-title">Mis Prestamos</span>
-                            </div>
-                            <ul class="subList subList--hidden">
-                                <li class="subList__item"><a href="WF_Listar_Prestamo_Pendiente_Socio.aspx" style="color: white">Pendientes</a></li>
-                                <li class="subList__item"><a href="WF_Listar_Prestamo_Aceptado_Socio.aspx" style="color: white">Aceptados</a></li>
-                                <li class="subList__item"><a href="WF_Historial_Prestamo.aspx" style="color: white">Historial Prestamos</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div class="navList__subheading row row--align-v-center">
-                                <span class="navList__subheading-icon"><i class="fas fa-list"></i></span>
-                                <span class="navList__subheading-title">Pagos</span>
-                            </div>
-                            <ul class="subList subList--hidden">
-                                <li class="subList__item"><a href="WF_Historial_Pagos.aspx" style="color: white">Historial de Pagos</a></li>
-                            </ul>
-                        </li>
+                    
+                   
                     </ul>
                 </div>
             </aside>

@@ -197,6 +197,15 @@
                 timer: 1000
             })
         }
+        function registroExitoso() {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Se registró exitosamente',
+                showConfirmButton: false,
+                timer: 1000
+            })
+        }
         function Director() {
             Swal.fire({
                 position: 'center',

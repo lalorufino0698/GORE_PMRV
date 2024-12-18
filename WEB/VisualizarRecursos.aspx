@@ -78,17 +78,36 @@
             button:hover {
                 background-color: #0f1d8b;
             }
+        /* Estilos para el botón */
+        .card-button {
+            background-color: #1a2cc5; /* Color de fondo */
+            color: #fff; /* Color de texto */
+            border: none; /* Sin borde */
+            padding: 10px 20px; /* Relleno alrededor del texto */
+            font-size: 1em; /* Tamaño de la fuente */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor a mano cuando se pasa sobre el botón */
+            transition: background-color 0.3s ease; /* Efecto al pasar el mouse */
+        }
+
+            /* Estilo cuando el mouse pasa sobre el botón */
+            .card-button:hover {
+                background-color: #0f1d8b; /* Color de fondo al pasar el mouse */
+            }
+
     </style>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 
-       <h1 style="text-align:center;">Materiales Clasificados por Tipo</h1>
-        
+       <h1 style="text-align:center;">Materiales Educativos</h1>
+        <p style="text-align:center;">En este espacio encontrarás una variedad de materiales educativos digitales del CAFED para que los utilices dentro y fuera del aula con el fin de 
+            fortalecer y dinamizar tus aprendizajes.</p>
        <section id="files-section" style="background-color: #faf8f2; padding: 40px;">
-    <h2 style="text-align: center; font-size: 2em; margin-bottom: 20px;">Archivos</h2>
+    <h3 style="text-align: center; font-size: 2em; margin-bottom: 20px;">Materiales</h3>
     <div id="CardsContainer" class="card-container" runat="server">
         <!-- El contenido generado dinámicamente se insertará aquí -->
+      
     </div>
 </section>
 

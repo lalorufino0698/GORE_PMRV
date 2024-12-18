@@ -24,18 +24,7 @@ public partial class VisualizarMaterial : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-            //// Lista de datos dinámicos
-            //var cards = new List<CardModel>
-            //{
-            //    new CardModel { Title = "Card 1", Description = "This is the first card.", VideoUrl = "http://172.16.1.29/MetaforaDelArbol.mp4" },
-
-            //};
-
-            //// Asigna la lista al Repeater
-            //CardRepeater.DataSource = cards;
-            //CardRepeater.DataBind();
-
-            // Vincular los datos al GridView
+            
             listarMateriales();
 
 

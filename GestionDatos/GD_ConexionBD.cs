@@ -16,8 +16,8 @@ namespace GestionDatos
         {
             get
             {
-                //return "Data Source =PC-OTICWEB;Initial Catalog=BD_PMRV;Integrated Security=True";
-                return "Data Source =EDUARDO;Initial Catalog=BD_PMRV;Integrated Security=True";
+                return "Data Source =PC-OTICWEB;Initial Catalog=BD_PMRV;Integrated Security=True";
+                //return "Data Source =EDUARDO;Initial Catalog=BD_PMRV;Integrated Security=True";
 
 
             }

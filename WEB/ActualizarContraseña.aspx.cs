@@ -17,27 +17,27 @@ public partial class ActualizarContraseña : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //ESPERAR EL DNI PARA PODER BUSCAR EL CORREO Y QUE VALIDE
-        if (Session["dni"] == null || Session["email"] == null)
+        if (Session["codUsuario"] == null)
         {
             Response.Redirect("Inicio.aspx");
         }
         else
         {
-            txtDniSocio.Text = Session["dni"].ToString();
-            txtEmail.Text = Session["email"].ToString();
+            txtCodUsuario.Text = Session["codUsuario"].ToString();
+            
 
         }
     }
 
     protected void btnConfirmar_Click(object sender, EventArgs e)
     {
-        if (txtContrasena.Text =="" || txtConfirmarContrasena.Text =="")
+        if (txtContraseña.Text =="" || txtConfirmarContrasena.Text =="")
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertVacio()", true);
             return;
         }
 
-        if (txtContrasena.Text!=txtConfirmarContrasena.Text)
+        if (txtContraseña.Text!=txtConfirmarContrasena.Text)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertContrasenaNoCoinciden()", true);
             return;
@@ -45,8 +45,8 @@ public partial class ActualizarContraseña : System.Web.UI.Page
 
 
         var encriptado = Encrypt.GetSHA256(txtConfirmarContrasena.Text.Trim());
-        var intDni = int.Parse(txtDniSocio.Text);
-        var exito = GD_HelperContrase.NuevaContraseña(txtEmail.Text, encriptado, intDni);
+        var codUsuario = txtCodUsuario.Text;
+        var exito = GD_HelperContrase.NuevaContraseña(codUsuario, encriptado);
         if (exito!=0)
         {
             Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertaagregar()", true);
@@ -62,6 +62,6 @@ public partial class ActualizarContraseña : System.Web.UI.Page
 
     protected void btnSalir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("WF_InicioSocio.aspx");
+        Response.Redirect("InicioDocente.aspx");
     }
 }

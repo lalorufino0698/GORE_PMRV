@@ -48,6 +48,7 @@ namespace GestionDatos
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Nombre", material.VM_Nombre);
             cmd.Parameters.AddWithValue("@Observacion", material.VM_Observacion);
+            cmd.Parameters.AddWithValue("@ruta", material.VM_Ruta);
             cmd.Parameters.AddWithValue("@TipoArchivo", material.VM_TipoArchivo);
             cmd.Parameters.AddWithValue("@fk_Ficha", material.fk_ficha);
 
@@ -82,7 +83,7 @@ namespace GestionDatos
         {
             try
             {
-                dat = new SqlDataAdapter("SP_ObtenerMaterialEducativoPorTipo", sqlc);
+                dat = new SqlDataAdapter("SP_ObtenerMaterialEducativo", sqlc);
                 dat.SelectCommand.CommandType = CommandType.StoredProcedure;
                 DataSet ds = new DataSet();
                 dat.Fill(ds);

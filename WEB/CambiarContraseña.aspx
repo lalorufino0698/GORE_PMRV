@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Socio.master" AutoEventWireup="true" CodeFile="CambiarContraseña.aspx.cs" Inherits="CambiarContraseña" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage_Docente.master" AutoEventWireup="true" CodeFile="CambiarContraseña.aspx.cs" Inherits="CambiarContraseña" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css">
-    <style>
+    <style> 
         fieldset {
             border: 1px solid #999;
             border-radius: 8px;
@@ -62,6 +62,15 @@
                 position: 'center',
                 icon: 'error',
                 title: 'El correo ingresado no coincide con el registrado anteriormente',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+        function alertUsuarioNoExiste() {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'El código ingresado no existe',
                 showConfirmButton: false,
                 timer: 2000
             })
