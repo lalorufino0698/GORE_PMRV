@@ -12,7 +12,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <asp:Label ID="txtDniSocio" runat="server" Text="" Visible="false"></asp:Label>
+    
     <h1 style="text-align: center; color: #73879C">CAMBIAR CONTRASEÑA</h1>
     <fieldset class="border" style="width: 55%; margin-left: 20%; height: 35%">
         <legend><b>ACTUALIZAR CONTRASEÑA</b></legend>
@@ -20,9 +20,9 @@
         <fieldset>
             <section style="padding-top: 3%"></section>
             <div class="form-group">
-                <asp:Label ID="Label14" Style="margin-left: 30%" runat="server" Text="Email"><b>Ingrese su correo con el que se ha registrado</b></asp:Label>
+                <asp:Label ID="Label14" Style="margin-left: 30%" runat="server" Text="Email"><b>Ingrese su código de usuario</b></asp:Label>
                 <section style="padding-top: 1%"></section>
-                <asp:TextBox ID="txtCorreoRegistro" runat="server" class="form-control" Style="width: 50%; margin-left: 25%"></asp:TextBox>
+                <asp:TextBox ID="txtCodUsuario" runat="server" class="form-control" Style="width: 50%; margin-left: 25%"></asp:TextBox>
                 <section style="padding-top: 2%"></section>
                 <asp:LinkButton ID="btnSalir" CssClass="btn btn-danger" runat="server" OnClick="btnSalir_Click" Width="100px" Style="margin-left: 25%; height: 40px" Text="Salir">
                     <section style="padding-top: 10%"></section>

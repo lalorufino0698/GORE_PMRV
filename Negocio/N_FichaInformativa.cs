@@ -37,6 +37,11 @@ namespace Negocio
             return objficha.ObtenerMaterialesEducativos();
 
         }
+        public DataTable ObtenerMaterialesEducativosPorTipo()
+        {
+            return objficha.ObtenerMaterialesEducativosPorTipoArchivo();
+
+        }
 
     }
 }

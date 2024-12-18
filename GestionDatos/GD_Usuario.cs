@@ -185,6 +185,10 @@ namespace GestionDatos
                 { objusu.VU_NombreCompletos = (string)reader[4]; }
                 else
                 { objusu.VU_NombreCompletos  = ""; }
+                if (reader[5] != DBNull.Value)
+                { objusu.VU_correo = (string)reader[5]; }
+                else
+                { objusu.VU_correo = ""; }
 
                 objusu.estado = 99;
             }

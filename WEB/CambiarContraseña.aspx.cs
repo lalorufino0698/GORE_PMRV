@@ -17,6 +17,10 @@ using System.Drawing;
 
 public partial class CambiarContraseña : System.Web.UI.Page
 {
+
+    Usuario Usuario = new Usuario();
+    N_Usuario _usuario = new N_Usuario();
+
     Socio soc = new Socio();
     N_Socio Nsoci = new N_Socio();
 
@@ -28,42 +32,25 @@ public partial class CambiarContraseña : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        //ESPERAR EL DNI PARA PODER BUSCAR EL CORREO Y QUE VALIDE
-        if (Session["dni"] == null)
-        {
-            Response.Redirect("Inicio.aspx");
-        }
-        else
-        {
-            txtDniSocio.Text = Session["dni"].ToString();
-        }
+        
     }
     protected void btnEnviar_Click(object sender, EventArgs e)
     {
-
-        if (txtCorreoRegistro.Text!="")
+        if (txtCodUsuario.Text!="")
         {
-            if (helperEmail.IsValidEmail((string)txtCorreoRegistro.Text) != true)
+            //código
+            Usuario.VU_codigoUsuario = txtCodUsuario.Text;
+            _usuario.BuscarUsuarioPorCodigoUsuario(Usuario);
+            var codigoBus = Usuario.VU_codigoUsuario;
+            if (codigoBus!="")
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertCorreoIncorrecto()", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertCorreoIncorrectoNoCoinciden()", true);
                 return;
             }
             else
             {
-                //código
-                soc.PK_IS_Cod = int.Parse(txtDniSocio.Text);
-                Nsoci.consultarSocio(soc, sol, es);
-                var emailBD = sol.VSol_Correo;
-                if (txtCorreoRegistro.Text != emailBD)
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "alerta", "alertCorreoIncorrectoNoCoinciden()", true);
-                    return;
-                }
-                else
-                {
-                    Session["email"] = "" + txtCorreoRegistro.Text;
-                    Response.Redirect("ActualizarContraseña.aspx");
-                }
+                Session["email"] = txtCodUsuario.Text;
+                Response.Redirect("ActualizarContraseña.aspx");
             }
         }
         else
@@ -79,6 +66,6 @@ public partial class CambiarContraseña : System.Web.UI.Page
 
     protected void btnSalir_Click(object sender, EventArgs e)
     {
-        Response.Redirect("WF_InicioSocio.aspx");
+        Response.Redirect("InicioDocente.aspx");
     }
 }

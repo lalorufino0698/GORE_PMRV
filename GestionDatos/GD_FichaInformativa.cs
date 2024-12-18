@@ -78,5 +78,21 @@ namespace GestionDatos
             }
         }
 
+        public DataTable ObtenerMaterialesEducativosPorTipoArchivo()
+        {
+            try
+            {
+                dat = new SqlDataAdapter("SP_ObtenerMaterialEducativoPorTipo", sqlc);
+                dat.SelectCommand.CommandType = CommandType.StoredProcedure;
+                DataSet ds = new DataSet();
+                dat.Fill(ds);
+                return ds.Tables[0];
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }
